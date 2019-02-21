@@ -8,10 +8,10 @@ const TaskList = (props) => (
       </div>
 );
 
-const ConnectedTaskList = connect((state) => {
-    return {
-        tasks: state.tasks
-    }
-})(TaskList);
+const mapStateToProps = (state) => {
+  return {
+      tasks: state.tasks
+  }
+};
 
-export default ConnectedTaskList;
+export default connect(mapStateToProps)(TaskList);
