@@ -6,8 +6,8 @@ export const addTask = (
         title = "",
         date = undefined,
         hour = undefined,
-        isImportant = false,
-        isCompleted = false
+        isImportant = 0,
+        isCompleted = 0
     } = {}) => ({
     type: 'ADD_TASK',
     task: {
