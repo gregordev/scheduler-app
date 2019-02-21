@@ -23,7 +23,9 @@ console.log(showenTasks);
 
 
 const JSX = () => (
+    <Provider store={store}>
         <AppRouter />
+    </Provider>
 );
 
 ReactDOM.render(<JSX />, document.getElementById('app'));
