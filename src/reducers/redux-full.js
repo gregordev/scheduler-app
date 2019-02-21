@@ -48,27 +48,14 @@ const sortByDate = () => ({
    type: 'SORT_BY_DATE'
 });
 
+const sortByImportance = () => ({
+   type: 'SORT_BY_IMPORTANCE'
+});
+
 const setDate = (date) => ({
   type: 'SET_DATE',
   date
 });
-
-
-// Action creators
-const doSomething = ({text}) => ({
-    type: 'DO_SOMETHING',
-    text
-});
-
-
-// Default states for reducers
-const filtersDefaultState = {
-  sortBy: 'hour',
-  date: undefined
-};
-
-const tasksDefaultState = [];
-// Store
 
 // Reducers
 const tasksReducer = (state = tasksDefaultState, action) => {
@@ -128,10 +115,24 @@ const filtersReducer = (state = filtersDefaultState, action) => {
                 ...state,
                 sortBy: 'name'
             };
+        case 'SORT_BY_IMPORTANCE':
+            return {
+                ...state,
+                sortBy: 'importance'
+            };
         default:
             return state;
     }
 };
+
+// Default states for reducers
+const filtersDefaultState = {
+    sortBy: 'hour',
+    date: undefined
+};
+
+const tasksDefaultState = [];
+
 
 const store = createStore(
     combineReducers({
@@ -139,9 +140,17 @@ const store = createStore(
         filters: filtersReducer
     })
 );
-const showTasks = (tasks, {date}) => {
+const showTasks = (tasks, {date, sortBy}) => {
     return tasks.filter((task) => {
         return task.date === date;
+    }).sort((task1, task2) => {
+      if (sortBy === 'importance') {
+          return task2.isImportant - task1.isImportant || task1.hour - task2.hour;
+      } else if (sortBy === 'hour') {
+          return task1.hour > task2.hour ? 1 : -1;
+      } else if (sortBy === 'name') {
+          return (task1.title > task2.title ? 1 : -1);
+      }
     })
 };
 store.subscribe(() => {
@@ -152,12 +161,13 @@ store.subscribe(() => {
 });
 
 
-store.dispatch(setDate(1000));
-const task1 = store.dispatch(addTask({title: "Wash the dished", date: 1000, hour: 8, isImportant: true}));
-const task2 = store.dispatch(addTask({title: "Go to gym", date: 1000, hour: 12}));
-const task3 = store.dispatch(addTask({title: "Last"}));
+store.dispatch(setDate(1100));
+const task1 = store.dispatch(addTask({title: "Wash the dished", date: 1100, hour: 7, isImportant: false}));
+const task2 = store.dispatch(addTask({title: "Go to gym", date: 1100, hour: 8, isImportant: true}));
+const task3 = store.dispatch(addTask({title: "Last", date: 1100, hour: 4, isImportant: true}));
 // store.dispatch(editTask(task1.task.id, {title: "XxxxXx", date: 900}));
 // store.dispatch(removeTask(task1.task.id));
+store.dispatch(sortByName());
 
 
 // That is like the state of an applications should look like
