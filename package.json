@@ -29,6 +29,7 @@
     "react-modal": "2.2.2",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
+    "react-time-picker": "^3.2.0",
     "redux": "^4.0.1",
     "sass-loader": "^7.1.0",
     "style-loader": "0.18.2",

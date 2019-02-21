@@ -13,7 +13,7 @@ const AppRouter = () => (
       <Header />
       <Switch>
         <Route path="/" component={SchedulerDashboard} exact={true} />
-        <Route path="/add" component={AddTaskPage} />
+        <Route path="/add" component={AddTaskPage} exact={true}/>
         <Route path="/edit/:id" component={EditTaskPage} />
         <Route path="/help" component={HelpPage} />
         <Route component={NotFoundPage} />
