@@ -15,6 +15,18 @@ export default (state = tasksDefaultState, action) => {
                 ...state,
                 action.task
             ];
+
+        case 'SET_IMPORTANT':
+            return state.map((task) => {
+               if (task.id === action.id) {
+                   return {
+                       ...task,
+                       isImportant: action.isImportant ? 0 : 1
+                   }
+               } else {
+                   return task;
+               }
+            });
         /*
             EDIT_TASK
             1. Map through entire tasks array

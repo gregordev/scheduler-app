@@ -1,6 +1,12 @@
 // ADD_TASK
 import uuid from "uuid";
 
+export const setImportant = (id, isImportant) => ({
+   type: 'SET_IMPORTANT',
+   id,
+   isImportant
+});
+
 export const addTask = (
     {
         title = "",
