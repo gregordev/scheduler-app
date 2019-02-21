@@ -1,8 +1,9 @@
 import React from 'react';
+import TaskList from './TaskList';
 
 const SchedulerDashboard = () => (
   <div>
-      x
+      <TaskList />
   </div>
 );
 

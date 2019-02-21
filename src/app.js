@@ -6,7 +6,7 @@ import configureStore from './store/configureStore';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import { addTask } from './actions/tasks';
-import { setDate, sortByName, sortByImportance } from './actions/filters';
+import { setDate, sortByImportance } from './actions/filters';
 import showTasks from './selectors/tasks';
 
 const store = configureStore();
