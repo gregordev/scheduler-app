@@ -5,7 +5,11 @@ const AddTaskPage = (props) => {
     return (
         <div>
             <h1>Add expense</h1>
-            <TaskForm />
+            <TaskForm
+                onSubmit={(przekazane) => {
+                    console.log(przekazane);
+                }}
+            />
         </div>
     );
 };
