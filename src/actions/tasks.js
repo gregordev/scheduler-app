@@ -12,6 +12,7 @@ export const addTask = (
         title = "",
         date = undefined,
         hour = undefined,
+        time = undefined,
         isImportant = 0,
         isCompleted = 0
     } = {}) => ({
@@ -21,6 +22,7 @@ export const addTask = (
         title,
         date,
         hour,
+        time,
         isImportant,
         isCompleted
     }
