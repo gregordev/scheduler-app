@@ -10,6 +10,7 @@ const AddTaskPage = (props) => {
             <TaskForm
                 onSubmit={(addedTask) => {
                     props.dispatch(addTask({...addedTask, date: 1100}));
+                    props.history.push('/');
                 }}
             />
         </div>
