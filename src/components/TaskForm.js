@@ -24,29 +24,31 @@ export default class TaskForm extends React.Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        const hourArr = this.state.hour.split(":");
-        const timeCount = parseInt(hourArr[0], 10) * 60 + parseInt(hourArr[1], 10);
+
+        let timeCount = 0;
+        let hourArr = [];
 
         if (!this.state.title || !this.state.hour) {
             this.setState(() => ({
                 error: "Please provide description and hour"
             }))
         } else {
-
+            hourArr = this.state.hour.split(":");
+            timeCount = parseInt(hourArr[0], 10) * 60 + parseInt(hourArr[1], 10);
             this.setState(() => ({
                 title: '',
                 hour: undefined,
                 time: undefined,
                 error: ''
             }))
+            this.props.onSubmit((
+                {
+                    title: this.state.title,
+                    hour: this.state.hour,
+                    time: timeCount,
+                }
+            ));
         }
-        this.props.onSubmit((
-            {
-                title: this.state.title,
-                hour: this.state.hour,
-                time: timeCount,
-            }
-        ));
     };
 
 
