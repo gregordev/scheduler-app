@@ -2,13 +2,19 @@ import React from 'react';
 import TimePicker from 'react-time-picker'
 
 export default class TaskForm extends React.Component {
-    state = {
-      title: '',
-      hour: undefined,
-      error: '',
-      time: undefined,
-      date: 1100
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            title: props.task ? props.task.title : '',
+            hour: props.task ? props.task.hour : undefined,
+            error: '',
+            time: props.task ? props.task.time : undefined,
+            date: 1100
+        };
+    }
+
+
 
     onTitleChange = (e) => {
       const title = e.target.value;
@@ -40,7 +46,7 @@ export default class TaskForm extends React.Component {
                 hour: undefined,
                 time: undefined,
                 error: ''
-            }))
+            }));
             this.props.onSubmit((
                 {
                     title: this.state.title,

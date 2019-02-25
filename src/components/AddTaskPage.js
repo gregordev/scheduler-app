@@ -6,7 +6,7 @@ import { addTask } from '../actions/tasks';
 const AddTaskPage = (props) => {
     return (
         <div>
-            <h1>Add expense</h1>
+            <h1>Add task</h1>
             <TaskForm
                 onSubmit={(addedTask) => {
                     props.dispatch(addTask({...addedTask, date: 1100}));
