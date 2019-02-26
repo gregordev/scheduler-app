@@ -20,7 +20,7 @@ class ChangeDate extends React.Component {
         this.props.dispatch(setDate(date));
     };
 
-    handleAddDay = (e) => {
+    handleAddDay = () => {
         this.setState((prevState) => ({
             date: prevState.date.add(1, 'days'),
             dayOfYear: this.state.date.dayOfYear()
@@ -28,22 +28,26 @@ class ChangeDate extends React.Component {
 
     };
 
-    handleRemDay = (e) => {
+    handleRemDay = () => {
         this.setState((prevState) => ({
             date: prevState.date.subtract(1, 'days'),
             dayOfYear: this.state.date.dayOfYear()
         }), this.handleDispatch);
     };
 
+    isDisabled = () => {
+      return this.state.dayOfYear === moment().dayOfYear();
+    };
+
 
     render() {
-
+        console.log(this.state.dayOfYear);
         return (
 
           <div>
-              <p>{this.state.dayOfYear}</p>
-              <button onClick={(e) => this.handleAddDay()}> + </button>
-              <button onClick={(e) => this.handleRemDay()}> - </button>
+              <p>{this.state.date.format("Do MMMM")}</p>
+              <button onClick={() => this.handleAddDay()}> + </button>
+              <button disabled={this.isDisabled()} onClick={() => this.handleRemDay()}> - </button>
           </div>
         );
     }
