@@ -9,7 +9,7 @@ const AddTaskPage = (props) => {
             <h1>Add task</h1>
             <TaskForm
                 onSubmit={(addedTask) => {
-                    props.dispatch(addTask({...addedTask, date: 1100}));
+                    props.dispatch(addTask({...addedTask, date: props.filters.date}));
                     props.history.push('/');
                 }}
             />
@@ -17,4 +17,8 @@ const AddTaskPage = (props) => {
     );
 };
 
-export default connect()(AddTaskPage);
+const mapStateToProps = (state, props) => {
+    return {filters: state.filters}
+};
+
+export default connect(mapStateToProps)(AddTaskPage);

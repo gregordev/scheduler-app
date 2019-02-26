@@ -10,39 +10,38 @@ class ChangeDate extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            date: initialState
+            date: initialState,
+            dayOfYear: initialState.dayOfYear()
         };
     }
 
     handleDispatch = () => {
-        this.props.dispatch(setDate(this.state.date.dayOfYear()));
+        const date = this.state.dayOfYear;
+        this.props.dispatch(setDate(date));
     };
 
     handleAddDay = (e) => {
-
         this.setState((prevState) => ({
-            date: prevState.date.add(1, 'days')
-        }));
-        console.log(this.state.date.format('Do MMMM'));
+            date: prevState.date.add(1, 'days'),
+            dayOfYear: this.state.date.dayOfYear()
+        }), this.handleDispatch);
+
     };
 
     handleRemDay = (e) => {
-        const x = this.state.date.dayOfYear();
         this.setState((prevState) => ({
-            date: prevState.date.subtract(1, 'days')
-        }));
+            date: prevState.date.subtract(1, 'days'),
+            dayOfYear: this.state.date.dayOfYear()
+        }), this.handleDispatch);
     };
 
 
     render() {
 
-
-
-
         return (
 
           <div>
-              <p>{this.state.date.format("Do MMMM")}</p>
+              <p>{this.state.dayOfYear}</p>
               <button onClick={(e) => this.handleAddDay()}> + </button>
               <button onClick={(e) => this.handleRemDay()}> - </button>
           </div>

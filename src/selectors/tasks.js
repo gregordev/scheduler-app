@@ -2,6 +2,7 @@
 
 export default (tasks, {date, sortBy}) => {
     return tasks.filter((task) => {
+        console.log(date);
         return task.date === date;
     }).sort((task1, task2) => {
         if (sortBy === 'importance') {
