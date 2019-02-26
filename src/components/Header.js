@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import {ChangeDate} from '../components/ChangeDate';
+import ChangeDate from '../components/ChangeDate';
 const Header = () => (
   <header>
     <h1>Scheduler app</h1>
