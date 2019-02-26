@@ -6,9 +6,12 @@ import {removeTask} from "../actions/tasks";
 import RemoveTaskModal from './RemoveTaskModal';
 
 const EditTaskPage = (props) => {
-    console.log(props);
+    const goBack = () => {
+        props.history.push('/');
+    };
   return (
     <div>
+        <button onClick={goBack}>Go back</button>
         <h1>Edit task</h1>
         Edit task page {props.match.params.id}
         <TaskForm

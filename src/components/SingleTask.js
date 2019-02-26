@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 import {setImportant} from '../actions/tasks';
 
 const SingleTask = ({dispatch, id, title, hour, isImportant}) => (
-  <div>
-      <Link to={`/edit/${id}`}>
-      <p>Title: {title} </p>
-      </Link>
-      <p>Hour: {hour}</p>
-      <p>Is it important?: {isImportant}</p>
-      <button onClick={() => {
+  <div className="single-task">
+      <input type="checkbox" checked={isImportant ? true : false} onChange={() => {
           dispatch(setImportant(id, isImportant));
-      }}>[]</button>
+      }}></input>
+      <Link to={`/edit/${id}`}>
+      <p>{title} </p>
+      </Link>
+      <p>{hour}</p>
+      <p>is important: {isImportant}</p>
       <br/><br/>
   </div>
 );

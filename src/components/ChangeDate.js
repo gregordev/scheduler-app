@@ -44,10 +44,10 @@ class ChangeDate extends React.Component {
         console.log(this.state.dayOfYear);
         return (
 
-          <div>
-              <p>{this.state.date.format("Do MMMM")}</p>
-              <button onClick={() => this.handleAddDay()}> + </button>
-              <button disabled={this.isDisabled()} onClick={() => this.handleRemDay()}> - </button>
+          <div className="change-date">
+              <button disabled={this.isDisabled()} onClick={() => this.handleRemDay()}> &#8592; </button>
+              <p className="actual-date">{this.state.date.format("Do MMMM")}</p>
+              <button onClick={() => this.handleAddDay()}> &#8594; </button>
           </div>
         );
     }

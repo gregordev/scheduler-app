@@ -68,6 +68,8 @@ export default class TaskForm extends React.Component {
                       hour={this.state.hour}
                       onChange={this.onTimeChange}
                       value={this.state.hour}
+                      hourMarksWidth={2}
+                      minuteMarksWidth={2}
                   />
                   <input
                       type="text"

@@ -9,7 +9,7 @@ import Header from '../components/Header';
 
 const AppRouter = () => (
   <BrowserRouter>
-    <div>
+    <div className="app-container">
       <Header />
       <Switch>
         <Route path="/" component={SchedulerDashboard} exact={true} />
