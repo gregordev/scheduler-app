@@ -1,10 +1,10 @@
 // ADD_TASK
 import uuid from "uuid";
 
-export const setImportant = (id, isImportant) => ({
+export const setImportant = (id, isCompleted) => ({
    type: 'SET_IMPORTANT',
    id,
-   isImportant
+   isCompleted
 });
 
 export const addTask = (
@@ -13,8 +13,7 @@ export const addTask = (
         date = undefined,
         hour = undefined,
         time = undefined,
-        isImportant = 0,
-        isCompleted = 0
+        isCompleted = 0,
     } = {}) => ({
     type: 'ADD_TASK',
     task: {
@@ -23,8 +22,7 @@ export const addTask = (
         date,
         hour,
         time,
-        isImportant,
-        isCompleted
+        isCompleted,
     }
 });
 // EDIT_TASK

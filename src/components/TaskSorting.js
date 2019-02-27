@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { sortByImportance, sortByName, sortByHour } from '../actions/filters';
+import { sortBycompletion, sortByName, sortByHour } from '../actions/filters';
 
 const TaskSorting = (props) => (
     <div>
@@ -8,8 +8,8 @@ const TaskSorting = (props) => (
             onChange={(e) => {
                 if (e.target.value === "hour") {
                     props.dispatch(sortByHour());
-                } else if (e.target.value === "importance") {
-                    props.dispatch(sortByImportance());
+                } else if (e.target.value === "completion") {
+                    props.dispatch(sortBycompletion());
                 } else if (e.target.value === "name") {
                     props.dispatch(sortByName());
                 }
@@ -19,8 +19,8 @@ const TaskSorting = (props) => (
             <option value="hour">
                 Sort by hour
             </option>
-            <option value="importance">
-                Sort by importance
+            <option value="completion">
+                Sort by completion
             </option>
             <option value="name">
                 Sort by name

@@ -1,9 +1,27 @@
 .change-date {
   display: flex;
   justify-content: center;
+  margin-bottom: 32px;
 }
 
 p.actual-date {
   min-width: 200px;
   text-align: center;
+  color: darken($blue-main, 20%);
+  font-weight: 500;
+}
+
+.btn-change-date {
+  border: none;
+  background: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: lighten($blue-main, 7%);
+  font-size: 50px !important;
+
+  &:disabled {
+    color: lighten($blue-main, 25%);
+  }
+
 }

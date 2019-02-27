@@ -5,7 +5,8 @@ import showenTasks from '../selectors/tasks';
 
 const TaskList = (props) => (
       <div>
-          <h1>Tasks today</h1>
+          <h2>Tasks today</h2>
+          {props.tasks.length ? "" : <p>No tasks for today. Add some tasks!</p>}
           {
               props.tasks.map((task) => {
                     return (

@@ -2,8 +2,7 @@ import React from 'react';
 import TaskForm from "./TaskForm";
 import { connect } from 'react-redux';
 import {editTask} from "../actions/tasks";
-import {removeTask} from "../actions/tasks";
-import RemoveTaskModal from './RemoveTaskModal';
+import {IoIosArrowRoundBack} from "react-icons/io";
 
 const EditTaskPage = (props) => {
     const goBack = () => {
@@ -11,9 +10,8 @@ const EditTaskPage = (props) => {
     };
   return (
     <div>
-        <button onClick={goBack}>Go back</button>
+        <button className="btn-go-back" onClick={goBack}><IoIosArrowRoundBack size={56}/></button>
         <h1>Edit task</h1>
-        Edit task page {props.match.params.id}
         <TaskForm
             task={props.task}
             onSubmit={(editedTask) => {
@@ -21,13 +19,7 @@ const EditTaskPage = (props) => {
                 props.history.push('/');
             }}
         />
-        <RemoveTaskModal
-            task={props.task}
-            onSubmit={() => {
-                props.dispatch(removeTask(props.task.id));
-                props.history.push('/');
-            }}
-        />
+
     </div>
   );
 };

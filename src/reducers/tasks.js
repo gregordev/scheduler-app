@@ -21,7 +21,7 @@ export default (state = tasksDefaultState, action) => {
                if (task.id === action.id) {
                    return {
                        ...task,
-                       isImportant: action.isImportant ? 0 : 1
+                       isCompleted: action.isCompleted ? 0 : 1
                    }
                } else {
                    return task;

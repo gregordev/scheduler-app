@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import TaskForm from './TaskForm';
 import { addTask } from '../actions/tasks';
+import {IoIosArrowRoundBack} from "react-icons/io";
 
 const AddTaskPage = (props) => {
     const goBack = () => {
@@ -9,7 +10,7 @@ const AddTaskPage = (props) => {
     };
     return (
         <div>
-            <button onClick={goBack}>Go back</button>
+            <button className="btn-go-back" onClick={goBack}><IoIosArrowRoundBack size={56}/></button>
             <h1>Add task</h1>
             <TaskForm
                 onSubmit={(addedTask) => {

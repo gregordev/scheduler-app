@@ -3,8 +3,12 @@ html {
 }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
   font-size: $m-size;
+}
+
+h1, h2 {
+  color: darken($blue-main, 40%);
 }
 
 button {
@@ -17,4 +21,8 @@ button:disabled {
 
 .is-active {
   font-weight: bold;
+}
+
+.btn-go-back {
+  font-size: 48px;
 }

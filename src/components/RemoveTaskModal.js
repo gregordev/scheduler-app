@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-responsive-modal';
 import { connect } from 'react-redux';
 import {removeTask} from '../actions/tasks';
+import { FaTrashAlt } from "react-icons/fa";
 
 class RemoveTaskModal extends React.Component {
 
@@ -27,19 +28,17 @@ class RemoveTaskModal extends React.Component {
 
     render() {
         const { open } = this.state;
-        console.log(this.props);
         return (
-            <div>
-                <button onClick={this.onOpenModal}>Remove</button>
+            <div className="remove-modal-container">
+                <button className="btn-remove" onClick={this.onOpenModal}><FaTrashAlt size={16}/></button>
                 <Modal open={open} onClose={this.onCloseModal} center>
-                    <h2>Are you sure that you want to remove this task?</h2>
-                    <div>Task id</div>
-                    <form onSubmit={(e) => {
+                    <h4 className="modal-title">Are you sure that you want to remove this task?</h4>
+                    <form className="remove-task-form" onSubmit={(e) => {
                         e.preventDefault();
                         this.handleSubmit();
                         this.onCloseModal();
                     }}>
-                        <button>Remove</button>
+                        <button className="btn-inside-modal" type="submit">Remove</button>
                     </form>
 
                 </Modal>

@@ -7,7 +7,7 @@ const addTask = (
      title = "",
      date = undefined,
      hour = undefined,
-     isImportant = false,
+     isCompleted = false,
      isCompleted = false
     } = {}) => ({
     type: 'ADD_TASK',
@@ -16,7 +16,7 @@ const addTask = (
         title,
         date,
         hour,
-        isImportant,
+        isCompleted,
         isCompleted
     }
 });
@@ -48,8 +48,8 @@ const sortByDate = () => ({
    type: 'SORT_BY_DATE'
 });
 
-const sortByImportance = () => ({
-   type: 'SORT_BY_IMPORTANCE'
+const sortBycompletion = () => ({
+   type: 'SORT_BY_completion'
 });
 
 const setDate = (date) => ({
@@ -115,10 +115,10 @@ const filtersReducer = (state = filtersDefaultState, action) => {
                 ...state,
                 sortBy: 'name'
             };
-        case 'SORT_BY_IMPORTANCE':
+        case 'SORT_BY_completion':
             return {
                 ...state,
-                sortBy: 'importance'
+                sortBy: 'completion'
             };
         default:
             return state;
@@ -144,8 +144,8 @@ const showTasks = (tasks, {date, sortBy}) => {
     return tasks.filter((task) => {
         return task.date === date;
     }).sort((task1, task2) => {
-      if (sortBy === 'importance') {
-          return task2.isImportant - task1.isImportant || task1.hour - task2.hour;
+      if (sortBy === 'completion') {
+          return task2.isCompleted - task1.isCompleted || task1.hour - task2.hour;
       } else if (sortBy === 'hour') {
           return task1.hour > task2.hour ? 1 : -1;
       } else if (sortBy === 'name') {
@@ -162,9 +162,9 @@ store.subscribe(() => {
 
 
 store.dispatch(setDate(1100));
-const task1 = store.dispatch(addTask({title: "Wash the dished", date: 1100, hour: 7, isImportant: false}));
-const task2 = store.dispatch(addTask({title: "Go to gym", date: 1100, hour: 8, isImportant: true}));
-const task3 = store.dispatch(addTask({title: "Last", date: 1100, hour: 4, isImportant: true}));
+const task1 = store.dispatch(addTask({title: "Wash the dished", date: 1100, hour: 7, isCompleted: false}));
+const task2 = store.dispatch(addTask({title: "Go to gym", date: 1100, hour: 8, isCompleted: true}));
+const task3 = store.dispatch(addTask({title: "Last", date: 1100, hour: 4, isCompleted: true}));
 // store.dispatch(editTask(task1.task.id, {title: "XxxxXx", date: 900}));
 // store.dispatch(removeTask(task1.task.id));
 store.dispatch(sortByName());
@@ -176,12 +176,12 @@ const stateX = {
         title: "",
         date: undefined,
         hour: undefined,
-        isImportant: false,
+        isCompleted: false,
         isCompleted: false
     },
 
     filters: {
-        sortBy: 'hour', // importance, alphabet, hour
+        sortBy: 'hour', // completion, alphabet, hour
         date: undefined
     }
 };

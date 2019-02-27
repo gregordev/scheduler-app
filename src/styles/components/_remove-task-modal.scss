@@ -1,0 +1,25 @@
+.remove-modal-container {
+  width: 50%;
+  display: inline !important;
+}
+
+.btn-remove {
+  border: none;
+  background: none;
+  color: darken(red, 20%);
+  display: inline !important;
+}
+
+h4.modal-title {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.btn-inside-modal {
+  text-align: center;
+}
+
+.remove-task-form {
+  display: flex;
+  justify-content: center;
+}

@@ -3,7 +3,7 @@ import TaskList from './TaskList';
 import TaskSorting from './TaskSorting';
 
 const SchedulerDashboard = () => (
-  <div>
+  <div className="scheduler-container">
       <TaskSorting />
       <TaskList />
   </div>

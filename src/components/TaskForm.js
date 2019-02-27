@@ -62,25 +62,32 @@ export default class TaskForm extends React.Component {
         return (
           <div>
                   {this.state.error && <p>{this.state.error}</p>}
-              <form onSubmit={this.onSubmit}>
-                  <TimePicker
-                      disableClock={true}
-                      hour={this.state.hour}
-                      onChange={this.onTimeChange}
-                      value={this.state.hour}
-                      hourMarksWidth={2}
-                      minuteMarksWidth={2}
-                  />
-                  <input
-                      type="text"
-                      placeholder="Title of the task"
-                      autoFocus
-                      value={this.state.title}
-                      onChange={this.onTitleChange}
-                  />
-                  <button>
-                      Add
-                  </button>
+              <form className="task-form" onSubmit={this.onSubmit}>
+                  <div className="task-form__item">
+                      <TimePicker
+                          disableClock={true}
+                          hour={this.state.hour}
+                          onChange={this.onTimeChange}
+                          value={this.state.hour}
+                          hourMarksWidth={2}
+                          minuteMarksWidth={2}
+                      />
+                  </div>
+                  <div className="task-form__item">
+                      <input
+                          type="text"
+                          placeholder="Title of the task"
+                          autoFocus
+                          value={this.state.title}
+                          onChange={this.onTitleChange}
+                      />
+                  </div>
+                  <div className="task-form__item">
+                      <button className="btn-submit">
+                          Submit
+                      </button>
+                  </div>
+
               </form>
           </div>
         );

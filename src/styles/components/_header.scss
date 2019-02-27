@@ -1,3 +1,26 @@
 .header-container {
   display: inline;
 }
+
+.btn-add-task {
+  display: inline-block;
+
+  padding: 0;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+
+  font-size: 32px;
+  font-weight: lighter;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color: $blue-main;
+  border-radius:50px;
+  position: relative;
+  top: -3px;
+  border: none;
+
+  margin: 2rem 0;
+}

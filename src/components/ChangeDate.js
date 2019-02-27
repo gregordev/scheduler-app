@@ -3,9 +3,9 @@ import moment from 'moment'
 const initialState = moment();
 import {connect} from 'react-redux';
 import {setDate} from '../actions/filters';
+import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
 
 class ChangeDate extends React.Component {
-
 
     constructor(props) {
         super(props);
@@ -45,9 +45,9 @@ class ChangeDate extends React.Component {
         return (
 
           <div className="change-date">
-              <button disabled={this.isDisabled()} onClick={() => this.handleRemDay()}> &#8592; </button>
+              <button className="btn-change-date" disabled={this.isDisabled()} onClick={() => this.handleRemDay()}><FaArrowAltCircleLeft size={28}/></button>
               <p className="actual-date">{this.state.date.format("Do MMMM")}</p>
-              <button onClick={() => this.handleAddDay()}> &#8594; </button>
+              <button className="btn-change-date" onClick={() => this.handleAddDay()}><FaArrowAltCircleRight size={28}/></button>
           </div>
         );
     }

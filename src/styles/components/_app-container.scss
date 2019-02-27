@@ -1,14 +1,21 @@
 .app-container {
   max-width: 480px;
   margin: 0 auto;
+  margin-top: 2rem;
   text-align: center;
   justify-content: center;
-  align-items: center;
+  align-items: center;background: #F4F4F4;
+  padding-top: 1rem;
+  padding-bottom: 4rem;
+  border-radius: 32px;
+  min-height: 600px;
+  position: relative;
 }
 
 @media (max-width: 480px) {
   .app-container {
     width: 100%;
+    min-height: 400px;
 
   }
 }

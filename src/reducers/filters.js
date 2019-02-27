@@ -20,10 +20,10 @@ export default (state = filtersDefaultState, action) => {
                 ...state,
                 sortBy: 'name'
             };
-        case 'SORT_BY_IMPORTANCE':
+        case 'SORT_BY_completion':
             return {
                 ...state,
-                sortBy: 'importance'
+                sortBy: 'completion'
             };
         default:
             return state;

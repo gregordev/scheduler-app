@@ -5,8 +5,8 @@ export default (tasks, {date, sortBy}) => {
         console.log(date);
         return task.date === date;
     }).sort((task1, task2) => {
-        if (sortBy === 'importance') {
-            return task2.isImportant - task1.isImportant || task1.time - task2.time;
+        if (sortBy === 'completion') {
+            return task2.isCompleted - task1.isCompleted || task1.time - task2.time;
         } else if (sortBy === 'hour') {
             return task1.time > task2.time ? 1 : -1;
         } else if (sortBy === 'name') {

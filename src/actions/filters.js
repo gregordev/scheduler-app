@@ -14,9 +14,9 @@ export const sortByDate = () => ({
     type: 'SORT_BY_DATE'
 });
 
-// SORT_BY_IMPORTANCE
-export const sortByImportance = () => ({
-    type: 'SORT_BY_IMPORTANCE'
+// SORT_BY_completion
+export const sortBycompletion = () => ({
+    type: 'SORT_BY_completion'
 });
 
 export const setDate = (date) => ({

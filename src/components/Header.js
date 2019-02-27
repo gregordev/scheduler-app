@@ -6,7 +6,7 @@ const Header = () => (
     <h1>Scheduler app</h1>
       <ChangeDate/>
     {/*<NavLink to="/" activeClassName="is-active" exact={true}>Dashboard</NavLink>*/}
-    <NavLink to="/add" activeClassName="is-active"><button>+</button></NavLink>
+    <NavLink to="/add" activeClassName="is-active"><button className="btn-add-task">+</button></NavLink>
   </header>
 );
 
